@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./build/index.js",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.0.1",
@@ -17,5 +17,10 @@
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "start": "node ./build/index.js",
+    "build": "npx tsc",
+    "dev": "tsnd --respawn ./src/index.ts"
   }
 }
