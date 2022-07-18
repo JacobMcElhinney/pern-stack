@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { Post } from "../interfaces/comment";
+import { Post } from "../interfaces/post";
 import db from "../models/index";
 
 //Get all posts from database
