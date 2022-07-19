@@ -9,16 +9,11 @@ A full stack demo app, built using the PERN (Postgres Express React Node) stack,
   1.4 [Build Application](#build-application))  
 2. [Front-End Project](#third-example)  
   2.1 [Install Dependencies](#install-dependencies)  
-  2.2 [Create Environment Variables](#environment-variables)  
-  2.3 [Containerise Database](#containerise-database)  
-  2.4 [Build Application](#build-application)
-
-
-
-
+  
 ## Back-End Project
 
-### Install Dependencies
+
+### 1.1 Install Dependencies
 After pulling down the *repository*, navigate to the **package.json** in the **backend** folder and run `yarn install`:
 ```
 .
@@ -37,7 +32,7 @@ yarn install
 ```
 
 
-### Create Environment variables
+### 1.2 Create Environment variables
 
 
 
@@ -61,7 +56,7 @@ NODE_ENV=development
 > Be sure to always include your `.env.<Environment>` files in a `.gitignore` file, if they hold *sensitive data* (**application secrets**)!
 
 
-### Containerise Database
+### 1.3 Containerise Database
 Using *Docker-Compose* allows us to containerise our database, speed up development and future deployment. Amongst several other benefits *Docker-Compose* allows for better control over the development environment and it eliminates the need to install PostgreSQL (relational database management system) on your host machine.
 
 >**Note**
@@ -86,7 +81,7 @@ docker-compose up -d
 | `docker-compose down --volumes`         | Remove all containers and volumes         |
 
 
-### Build Application
+### 1.4 Build Application
 After: 
 - installing dependencies  
 - creating environment variables  
@@ -116,17 +111,22 @@ yarn run v1.22.15
 $ tsnd --respawn ./src/index.ts
 [INFO] 02:57:21 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.1, typescript ver. 4.7.4)
 Executing (default): SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'Posts'
-...
-Server listening on port 3000
+...Server listening on port 3000
 ```
 
-Sequelize will now have created the database and tables for us.
+Sequelize will now have created the database and tables for us based on our entity models.
 ---
 
 ## Front-End Project
 
 ### Install Dependencies
 
-### Create Environment variables
+- navigate to the **package.json** in the **frontend** folder and run `yarn install`:
+- run `yarn build` to transpile the application
+- run `yarn dev` to start the application
 
-### Containerise Database
+**Note**  
+> Both the docker container (server & db) and the api (node/express) need to be running for the application to work. The react-redux application is running on port 3001, when using the `yarn dev` command, to avoid port conflicts with the api.
+
+---
+PROJECT SETUP COMPLETE 
