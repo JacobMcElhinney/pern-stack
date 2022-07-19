@@ -114,7 +114,8 @@ Executing (default): SELECT table_name FROM information_schema.tables WHERE tabl
 ...Server listening on port 3000
 ```
 
-Sequelize will now have created the database and tables for us based on our entity models.
+Sequelize will now have created the database and tables for us based on our entity models. Our api and database are ready to process requests. 
+
 ---
 
 ## Front-End Project
