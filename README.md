@@ -2,42 +2,51 @@
 A full stack demo app, built using the PERN (Postgres Express React Node) stack, to demonstrate a basic understanding of the technologies involved.
 
 ## Project Setup
-1. [Back-End Project](#back-end-project)  
-  1.1 [Install Dependencies](#install-dependencies)
-3. [Third Example](#third-example)
-4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+1. [Back-End Project](#back-end-project)    
+  1.1 [Install Dependencies](#install-dependencies)  
+  1.2 [Create Environment Variables](#environment-variables)  
+  1.3 [Containerise Database](#containerise-database)  
+  1.4 [Build Application](#build-application))  
+2. [Front-End Project](#third-example)  
+  2.1 [Install Dependencies](#install-dependencies)  
+  2.2 [Create Environment Variables](#environment-variables)  
+  2.3 [Containerise Database](#containerise-database)  
+  2.4 [Build Application](#build-application)
 
-### Example2
-### Third Example
-### [Fourth Example](http://www.fourthexample.com) 
+
 
 
 ## Back-End Project
 
 ### Install Dependencies
-After pulling down the *repository*, navigate to the **package.json** in the **back-end** folder and run `yarn install`:
+After pulling down the *repository*, navigate to the **package.json** in the **backend** folder and run `yarn install`:
 ```
 .
-├── front-end
-│       └── package.json
-├── back-end
-│       └── package.json
+├── frontend
+│   └── package.json
+├── backend
+│   └── package.json
 └── README.md
 ```
 ```pwsh
 # Navigate to package.json
-cd ./back-end/
+cd ./backend/
 
 # Install packages using Yarn Package Manager
 yarn install
 ```
-### Environment variables
 
-As the secrets kept within the `.env` file are harmless *example values* - for demonstration purposes - the file has not ben added to `.gitignore`, to speed up the setup process.
->**Note**  
-> Be sure to always include your `.env.<Environment>` files if they hold *sensitive data* (**application secrets**)!
 
-This demo application uses the following *example environment variables*:
+### Create Environment variables
+
+
+
+```pwsh
+# create .env file in backend folder
+ni .env
+```
+
+Add or replace the following *example* values in the file:
 ```
 POSTGRES_NAME=postgres
 POSTGRES_USER=admin
@@ -48,17 +57,76 @@ EXPRESS_PORT=3000
 NODE_ENV=development
 ``` 
 
-
-### Install PostgreSQL Using Docker-Compose 
-Using *Docker-Compose* allows us to containerise our database, speed up development and deployment. Amongst several other benefits *Docker-Compose* allows for better control over the development environment as it eliminates the need to install the database on you host machine.
-
+>**Note**  
+> Be sure to always include your `.env.<Environment>` files in a `.gitignore` file, if they hold *sensitive data* (**application secrets**)!
 
 
+### Containerise Database
+Using *Docker-Compose* allows us to containerise our database, speed up development and future deployment. Amongst several other benefits *Docker-Compose* allows for better control over the development environment and it eliminates the need to install PostgreSQL (relational database management system) on your host machine.
 
+>**Note**
+> The **.env** file is loaded by default by default as long as it is at the *same level* as the **docker-compose.yaml** file and *name exactly matches*: `.env`. If you want to name it differently or store it at another location (using the `--env-file` option), please refer to the [documentation](https://docs.docker.com/compose/environment-variables/#using-the---env-file--option).
+
+Using default .env filename and location (./backend/.env)
+```pwsh
+# Start the database in detached mode (background process)
+docker-compose up -d
+```
 
 >**Note**  
->If you encounter the *Error*: `Couldn't connect to Docker daemon`, download *Docker Desktop* [here](https://www.docker.com/products/docker-desktop/). 
+>If you encounter the *Error*: `Couldn't connect to Docker daemon`, make sure you've docker daemon is running by starting [docker desktop](https://www.docker.com/products/docker-desktop/). Also note that `.yaml` files are *whitespace sensitive*, carefully review you docker-compose.yaml and .env files or and `docker-compose run db env` to make sure they are loaded. 
 
 
+| Command                                 | Description                               |
+|-----------------------------------------|-------------------------------------------|
+| `docker ps`                             | Output list of running containers         |
+| `docker inspect <CONTAINER_ID>`         | Inspect individual container              |
+| `docker-compose run <SERVICE_NAME> env` | Output environment variables for service  |
+| `docker-compose stop`                   | Stop all containers                       |
+| `docker-compose down --volumes`         | Remove all containers and volumes         |
 
 
+### Build Application
+After: 
+- installing dependencies  
+- creating environment variables  
+- creating a containerised server and database  
+
+...we can finally *build* and *start* the application.
+
+```js
+  "scripts": {
+    "start": "node ./build/index.js",
+    "build": "npx tsc",
+    "dev": "tsnd --respawn ./src/index.ts"
+  }
+```
+
+```pwsh
+# Transpile and bundle the application
+yarn build
+
+# start the application
+yarn dev
+```
+
+Expected output (shortened):
+```
+yarn run v1.22.15
+$ tsnd --respawn ./src/index.ts
+[INFO] 02:57:21 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.1, typescript ver. 4.7.4)
+Executing (default): SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'Posts'
+...
+Server listening on port 3000
+```
+
+Sequelize will now have created the database and tables for us.
+---
+
+## Front-End Project
+
+### Install Dependencies
+
+### Create Environment variables
+
+### Containerise Database
