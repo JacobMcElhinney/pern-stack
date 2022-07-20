@@ -126,7 +126,7 @@ Sequelize will now have created the database and tables for us based on our enti
 - run `yarn build` to transpile the application
 - run `yarn dev` to start the application
 
-**Note**  
+>**Note**  
 > Both the docker container (server & db) and the api (node/express) need to be running for the application to work. The react-redux application is running on port 3001, when using the `yarn dev` command, to avoid port conflicts with the api.
 
 ---
