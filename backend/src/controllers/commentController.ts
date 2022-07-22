@@ -22,28 +22,12 @@ export const getCommentById = async (req: Request, res: Response) => {
   }
 };
 
-//Get all comments where postId = id
-export const getCommentsByPostId = async (req: Request, res: Response) => {
-  const id = req.params.id;
-  try {
-    const comments: Array<Comment> = await db.Comment.findAll({
-      where: {
-        postId: id,
-      },
-    });
-    res.json(comments);
-  } catch (err: any) {
-    res.status(500).json({ message: err.message });
-  }
-};
-
 //Create comment
 export const createComment = async (req: Request, res: Response) => {
   try {
-      const comment: Comment = await db.Comment.create(req.body);
-      res.status(201).json(comment);
-    }
-   catch (err: any) {
+    const comment: Comment = await db.Comment.create(req.body);
+    res.status(201).json(comment);
+  } catch (err: any) {
     res.status(500).json({ message: err.message });
   }
 };
