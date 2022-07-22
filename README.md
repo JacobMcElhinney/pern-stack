@@ -62,7 +62,7 @@ Using *Docker-Compose* allows us to containerise our database, speed up developm
 >**Note**
 > The **.env** file is loaded by default as long as it is at the *same level* as the **docker-compose.yaml** file and *name exactly matches*: `.env`. If you want to name it differently or store it at another location (using the `--env-file` option), please refer to the [documentation](https://docs.docker.com/compose/environment-variables/#using-the---env-file--option). If no .env file is provided, you are likely to encounter the following error:`[ERROR] 12:05:00 Error: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string`, since sequelize will not be provided the values needed to connect to the database.
 
-Using default .env filename and location (./backend/.env)
+Using default .env filename and location (`./backend/.env`)
 ```pwsh
 # Start the database in detached mode (background process)
 docker-compose up -d
