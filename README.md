@@ -4,7 +4,7 @@ A full stack demo app, built using the PERN (Postgres Express React Node) stack,
 ## Project Setup
 1. [Back-End Project](#back-end-project)    
   1.1 [Install Dependencies](#install-dependencies)  
-  1.2 [Create Environment Variables](#environment-variables)  
+  1.2 [Create Environment Variables](#create-environment-variables)  
   1.3 [Containerise Database](#containerise-database)  
   1.4 [Start Application](#start-application) 
 2. [Front-End Project](#front-end-project)  
