@@ -18,7 +18,7 @@ export const getPostById = async (req: Request, res: Response) => {
     const post: Post = await db.Post.findByPk(req.params.id);
     res.status(200).json(post);
   } catch (err: any) {
-    res.status(500).json({ message: err.message});
+    res.status(500).json({ message: err.message });
   }
 };
 
@@ -29,7 +29,7 @@ export const createPost = async (req: Request, res: Response) => {
     res.status(201).json(post);
   } catch (err: any) {
     res.status(500).json({ message: err.message });
-    console.log("error")
+    console.log("error");
   }
 };
 
