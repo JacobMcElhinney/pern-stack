@@ -2,18 +2,18 @@
 A full stack demo app, built using the PERN (Postgres Express React Node) stack, to demonstrate a basic understanding of the technologies involved.
 
 ## Project Setup
-1. [Back-End Project](#1.-back-end-project)    
-  1.1 [Install Dependencies](#1.1-install-dependencies)  
-  1.2 [Create Environment Variables](#1.2-environment-variables)  
-  1.3 [Containerise Database](#1.3-containerise-database)  
-  1.4 [Start Application](#1.4-start-application) 
-2. [Front-End Project](#2.-front-end-project)  
-  2.1 [Install Dependencies](#2.1-install-dependencies)  
+1. [Back-End Project](#back-end-project)    
+  1.1 [Install Dependencies](#install-dependencies)  
+  1.2 [Create Environment Variables](#environment-variables)  
+  1.3 [Containerise Database](#containerise-database)  
+  1.4 [Start Application](#start-application) 
+2. [Front-End Project](#front-end-project)  
+  2.1 [Install Dependencies](#install-dependencies)  
   
 ## Back-End Project
 
 
-### 1.1 Install Dependencies
+### Install Dependencies
 After pulling down the *repository*, navigate to the **package.json** in the **backend** folder and run `yarn install`:
 ```
 .
@@ -32,7 +32,7 @@ yarn install
 ```
 
 
-### 1.2 Create Environment variables
+### Create Environment variables
 
 
 
@@ -56,7 +56,7 @@ NODE_ENV=development
 > Be sure to always include your `.env.<Environment>` files in a `.gitignore` file, if they hold *sensitive data* (**application secrets**)!
 
 
-### 1.3 Containerise Database
+### Containerise Database
 Using *Docker-Compose* allows us to containerise our database, speed up development and future deployment. Amongst several other benefits *Docker-Compose* allows for better control over the development environment and it eliminates the need to install PostgreSQL (relational database management system) on your host machine.
 
 >**Note**
@@ -81,7 +81,7 @@ docker-compose up -d
 | `docker-compose down --volumes`         | Remove all containers and volumes         |
 
 
-### 1.4 Start Application
+### Start Application
 After: 
 - installing dependencies  
 - creating environment variables  
