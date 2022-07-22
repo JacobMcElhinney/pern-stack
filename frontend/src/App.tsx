@@ -1,4 +1,3 @@
-import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ReadPostPage from "./features/posts/ReadPostPage";
 import PostIndexPage from "./features/posts/PostIndexPage";
