@@ -87,7 +87,7 @@ After:
 - creating environment variables  
 - creating a containerised server and database  
 
-...we can finally *build* and *start* the application.
+...we can finally *build* (*optional*: only needed after further changes to the code or if you wish to create a production build) and *start* the application.
 
 ```js
   "scripts": {
@@ -123,7 +123,7 @@ Sequelize will now have created the database and tables for us based on our enti
 ### Install Dependencies
 
 - navigate to the **package.json** in the **frontend** folder and run `yarn install`:
-- run `yarn build` to transpile the application
+- *optional*: run `yarn build` to create production build.
 - run `yarn dev` to start the application
 
 >**Note**  
