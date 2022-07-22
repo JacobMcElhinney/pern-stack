@@ -5,7 +5,7 @@ import { StyledHeader, Nav } from "./styles/Header.styled";
 const Header = () => {
   return (
     <StyledHeader>
-          <h1>PERN Stack</h1>
+          <h1><Link to="/">PERN Stack</Link></h1>
           <Nav>
             <ul>
               <li><StyledButton><Link to="/">Read Posts</Link></StyledButton></li>
