@@ -60,7 +60,7 @@ NODE_ENV=development
 Using *Docker-Compose* allows us to containerise our database, speed up development and future deployment. Amongst several other benefits *Docker-Compose* allows for better control over the development environment and it eliminates the need to install PostgreSQL (relational database management system) on your host machine.
 
 >**Note**
-> The **.env** file is loaded by default as long as it is at the *same level* as the **docker-compose.yaml** file and *name exactly matches*: `.env`. If you want to name it differently or store it at another location (using the `--env-file` option), please refer to the [documentation](https://docs.docker.com/compose/environment-variables/#using-the---env-file--option).
+> The **.env** file is loaded by default as long as it is at the *same level* as the **docker-compose.yaml** file and *name exactly matches*: `.env`. If you want to name it differently or store it at another location (using the `--env-file` option), please refer to the [documentation](https://docs.docker.com/compose/environment-variables/#using-the---env-file--option). If no .env file is provided, you are likely to encounter the following error:`[ERROR] 12:05:00 Error: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string`, since sequelize will not be provided the values needed to connect to the database.
 
 Using default .env filename and location (./backend/.env)
 ```pwsh
