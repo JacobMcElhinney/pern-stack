@@ -131,4 +131,4 @@ Sequelize will now have created the database and tables for us based on our enti
 
 ---
 PROJECT SETUP COMPLETE :tada:   
-([back to top](#project-setup))
+([back to top](#pern-stack))
