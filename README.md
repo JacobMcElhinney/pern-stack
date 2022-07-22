@@ -37,7 +37,7 @@ yarn install
 
 
 ```pwsh
-# create .env file in backend folder
+# create .env file in the backend folder
 ni .env
 ```
 
