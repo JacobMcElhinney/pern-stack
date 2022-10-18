@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { StyledArticle } from "../../components/styles/Article.styled";
-import Comment from "./Comment";
+import CommentItem from "./CommentItem";
 import {
-  Comment as IComment,
   commentsSelectors,
   getComments,
 } from "./commentsSlice";
@@ -20,7 +18,7 @@ const CommentsList = () => {
   useEffect(() => {
     dispatch(getComments());
     console.log(comments);
-  }, []);
+  }, [comments, dispatch]);
 
   console.log("hello from comment list: ", postId);
   return (
@@ -28,7 +26,7 @@ const CommentsList = () => {
           {relatedComments &&
             relatedComments.map((comment) => (
               <li>
-                <Comment key={comment.id} comment={comment} />
+                <CommentItem key={comment.id} comment={comment} />
               </li>
             ))}
           {!relatedComments && <p>No comments found...</p>}
