@@ -9,7 +9,7 @@ import axios from "axios";
 
 const COMMENTS_API_URL = "http://localhost:3000/api/comments";
 
-export interface Comment {
+export type Comment = {
   id: number;
   content: string;
   author: string;
